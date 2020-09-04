@@ -167,7 +167,7 @@ class SessionPlugin(BasePlugin):
             options['domain'] = self.cookie_domain
         if self.cookie_lifetime:
             options['expires'] = cookie_expiration_date(self.cookie_lifetime)
-        response.setCookie(self.cookie_name, cookie, **options)
+        response.setCookie(self.cookie_name, cookie, quoted=False, **options)
 
     # IExtractionPlugin implementation
     def extractCredentials(self, request):
